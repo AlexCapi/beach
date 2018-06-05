@@ -1,0 +1,8 @@
+{
+  "name": "beach",
+  "app_id": "f5104672",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
