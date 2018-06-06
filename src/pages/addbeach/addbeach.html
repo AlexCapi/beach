@@ -5,17 +5,70 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>Ajouter une plage</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>
+      Ajouter une plage
+    </ion-title>
     <ion-buttons start>
-      <button ion-button (click)="dismiss()">
-        Annuler
-      </button>
+      <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Retour</button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-right (click)="next()">Continuer <ion-icon name="arrow-forward"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <ion-slides #addbeachSlider pager>
+
+    <ion-slide>
+
+      <p padding *ngIf="submitAttempt" style="color: #ea6153;">Tous les champs doivent être correct.</p>
+
+      <ion-list no-lines>
+
+        <form [formGroup]="slideOneForm">
+
+          <ion-item>
+            <ion-label>Nom</ion-label>
+            <ion-input formControlName="name" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Type</ion-label>
+            <ion-select formControlName="beachType">
+              <ion-option *ngFor="let beachType of beachTypes" [value]="beachType.id"> {{ beachType.label }}</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-list radio-group formControlName="dogAllowed">
+            <ion-list-header>
+              Chiens autorisés
+            </ion-list-header>
+
+            <ion-item>
+              <ion-label>Non</ion-label>
+              <ion-radio [value]="false"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Oui</ion-label>
+              <ion-radio [value]="true"></ion-radio>
+            </ion-item>
+          </ion-list>
+
+        </form>
+
+      </ion-list>
+
+    </ion-slide>
+
+    <ion-slide>
+
+    </ion-slide>
+
+  </ion-slides>
 
 </ion-content>
