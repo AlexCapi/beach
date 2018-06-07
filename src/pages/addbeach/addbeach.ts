@@ -21,7 +21,6 @@ export class AddbeachPage {
 
   @ViewChild('addbeachSlider') addbeachSlider: any;
   beachTypes: any;
-
   submitAttempt: boolean = false;
 
   slideOneForm: FormGroup;
@@ -51,6 +50,10 @@ export class AddbeachPage {
       beachType: [''],
       dogAllowed: [false]
     });
+
+  }
+
+  ionViewDidLoad() {
 
   }
 

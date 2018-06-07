@@ -1,3 +1,6 @@
 page-addbeach {
-
+  #map { /* Must bigger size than 100x100 pixels */
+    width: 100%;
+    height: 500px;
+  }
 }
